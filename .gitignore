@@ -30,6 +30,7 @@
                .vscode/
                .config/
                .idea/
+               /gradle-7.4/
 
 
                ### Package Files ###
