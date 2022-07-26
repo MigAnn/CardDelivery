@@ -24,6 +24,7 @@
                /dist/
                /nbdist/
                /.nb-gradle/
+               /gradle-7.4/
 
                ### VS Code ###
                .vscode/
