@@ -1,4 +1,3 @@
-
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,8 +11,7 @@ import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
-
-public class CardDeliveryTest {
+public class CardDeliveryTestSecond {
     @BeforeEach
     void open() {
         Selenide.open("http://localhost:9999/");
@@ -22,7 +20,8 @@ public class CardDeliveryTest {
     @Test
     void validTest() throws InterruptedException {
         $("[data-test-id='city'] input").setValue("Смоленск");
-        String data = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        String data = LocalDate.now().plusDays(7).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        $("[placeholder='Дата встречи'].input__control").sendKeys(Keys.BACK_SPACE);
         $("[placeholder='Дата встречи'].input__control").setValue(data);
         $("[data-test-id='name'] input").setValue("Пантелеймон Пантелеймонов-Серверный");
         $("[data-test-id='phone'] input").setValue("+72002002002");
