@@ -21,7 +21,7 @@ public class CardDeliveryTestSecond {
     void validTest() throws InterruptedException {
         $("[data-test-id='city'] input").setValue("Смоленск");
         String data = LocalDate.now().plusDays(7).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        $("[placeholder='Дата встречи'].input__control").sendKeys(Keys.BACK_SPACE);
+        $("[placeholder='Дата встречи'].input__control").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("[placeholder='Дата встречи'].input__control").setValue(data);
         $("[data-test-id='name'] input").setValue("Пантелеймон Пантелеймонов-Серверный");
         $("[data-test-id='phone'] input").setValue("+72002002002");
