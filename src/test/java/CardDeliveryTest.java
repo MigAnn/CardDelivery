@@ -28,9 +28,8 @@ public class CardDeliveryTest {
         String planningDate = generateDate(4);
         $("[data-test-id='city'] input").setValue("Смоленск");
         $("[placeholder='Дата встречи'].input__control").click();
-        $("[data-test-id=date] .input__control").sendKeys(Keys.CONTROL + "A");
-        $("[data-test-id=date] .input__control").sendKeys(Keys.BACK_SPACE);
-        $("[data-test-id=date] .input__control").setValue(generateDate(3));
+        $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
+        $("[data-test-id='date'] input").setValue(planningDate);
         $("[data-test-id='name'] input").setValue("Пантелеймон Пантелеймонов-Серверный");
         $("[data-test-id='phone'] input").setValue("+72002002002");
         $("[data-test-id=agreement]").click();
