@@ -18,12 +18,15 @@ public class CardDeliveryTest {
     void open() {
         Selenide.open("http://localhost:9999/");
     }
+    @BeforeEach
+    public String generateDate(int days) {
+        return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+    }
 
     @Test
     void validTest() throws InterruptedException {
         $("[data-test-id='city'] input").setValue("Смоленск");
-        String data = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        $("[placeholder='Дата встречи'].input__control").setValue(data);
+        $("[placeholder='Дата встречи'].input__control").setValue(generateDate(3));
         $("[data-test-id='name'] input").setValue("Пантелеймон Пантелеймонов-Серверный");
         $("[data-test-id='phone'] input").setValue("+72002002002");
         $("[data-test-id=agreement]").click();
